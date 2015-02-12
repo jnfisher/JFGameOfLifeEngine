@@ -1,2 +1,2 @@
-# GameOfLife
-Swift Implementation of Conway's Game of Life
+# JFGameOfLifeEngine
+Conway's Game of Life Engine
