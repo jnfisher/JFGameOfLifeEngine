@@ -31,6 +31,7 @@ public class Cell : Printable {
 }
 
 public typealias Matrix = SparseMatrix<Cell>
+public typealias GameOfLifeBoard = GameBoard<Matrix>
 
 extension SparseMatrix {
     
@@ -44,12 +45,12 @@ public class GameOfLifeEngine {
     }
     
     public init() {
-        self.currentBoard = GameBoard(board: Matrix(), aliveRuleSet: ConwaysRules.aliveRuleset, deadRuleSet: ConwaysRules.deadRuleset)
+        self.currentBoard = GameBoard(matrix: Matrix(), aliveRuleSet: ConwaysRules.aliveRuleset, deadRuleSet: ConwaysRules.deadRuleset)
     }
     
     public func step() -> GameBoard<Matrix> {
         var nextBoard = Matrix(array: processedCurrentlyAliveCells + processedLiveNeighboringCells)
-        return GameBoard<Matrix>(board: nextBoard, aliveRuleSet: currentBoard.aliveRuleSet, deadRuleSet: currentBoard.deadRuleSet)
+        return GameBoard<Matrix>(matrix: nextBoard, aliveRuleSet: currentBoard.aliveRuleSet, deadRuleSet: currentBoard.deadRuleSet)
     }
     
     public func swap(newBoard: GameBoard<Matrix>) {
@@ -58,7 +59,7 @@ public class GameOfLifeEngine {
     
     public var processedCurrentlyAliveCells: Array<(Int, Int, Cell)> {
         get {
-            var cells = filter(map(currentBoard.board, { (key, cell) -> (Int, Int, Cell) in
+            var cells = filter(map(currentBoard.matrix, { (key, cell) -> (Int, Int, Cell) in
                 if cell.state == CellState.Alive {
                     return (key.row, key.col, Cell(state: self.currentBoard.applyRules(key)))
                 }
@@ -75,10 +76,10 @@ public class GameOfLifeEngine {
         get {
             var processedCellCache = Matrix()
             
-            for (index, cell) in currentBoard.board {
+            for (index, cell) in currentBoard.matrix {
                 if cell.state == CellState.Alive {
                     for (row, col) in index.moore {
-                        if currentBoard.board[row, col]?.state == CellState.Alive {
+                        if currentBoard.matrix[row, col]?.state == CellState.Alive {
                             // skip currently alive cells, they were already processed
                             continue
                         }
