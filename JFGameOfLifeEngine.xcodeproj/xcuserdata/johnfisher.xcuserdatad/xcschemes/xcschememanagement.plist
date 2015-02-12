@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>JFGameOfLifeEngine.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+		<key>Sparse.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>880C96C91A8668B600087C2A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>880C96D41A8668B600087C2A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>88B91E091A86A0BC00C39F31</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>88B91E131A86A0BC00C39F31</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
